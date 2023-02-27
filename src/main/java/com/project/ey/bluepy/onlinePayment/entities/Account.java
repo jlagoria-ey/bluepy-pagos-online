@@ -11,6 +11,7 @@ public class Account extends UuidIdentifiedEntity implements Serializable {
 
     private String user_id;
     private Float account_amount;
+    private Long accountNumber;
     private Boolean active;
 
     public Account() {
@@ -30,6 +31,14 @@ public class Account extends UuidIdentifiedEntity implements Serializable {
 
     public void setAccount_amount(Float account_amount) {
         this.account_amount = account_amount;
+    }
+
+    public Long getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(Long accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public Boolean getActive() {

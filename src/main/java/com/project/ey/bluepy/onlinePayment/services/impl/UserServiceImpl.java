@@ -13,9 +13,20 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserRepository userRepository;
+
     @Override
     public User save(User user) {
         return userRepository.insert(user);
+    }
+
+    @Override
+    public List<User> saveUsers(List<User> users) {
+        return userRepository.saveAll(users);
+    }
+
+    @Override
+    public User findByPersonaNumber(Long personaNumber) {
+        return userRepository.findUserByPersonaNumber(personaNumber);
     }
 
     @Override

@@ -16,27 +16,4 @@ import java.util.List;
 
 @RestController
 public class OnlinePaymentController {
-
-    @Autowired
-    UserService userService;
-
-    @GetMapping("users")
-    public List<User> getAllUsers() {
-        List<User> users = userService.getAll();
-        return users;
-    }
-
-    @PostMapping(path = "user",
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<User> saveUser(@RequestBody User user) throws ServerException {
-
-        User userSaved = userService.save(user);
-
-        if (userSaved == null) {
-            throw new ServerException("Error de datos");
-        } else {
-            return new ResponseEntity<>(userSaved, HttpStatus.CREATED);
-        }
-    }
 }
