@@ -20,6 +20,11 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
+    public List<Company> saveAll(List<Company> companies) {
+        return companyRepository.saveAll(companies);
+    }
+
+    @Override
     public Company getCompanyByNumber(Long companyNumber) {
         return companyRepository.findCompanyByCompanyNumber(companyNumber);
     }

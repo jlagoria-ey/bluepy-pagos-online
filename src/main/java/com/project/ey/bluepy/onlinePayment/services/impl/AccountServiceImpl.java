@@ -28,4 +28,9 @@ public class AccountServiceImpl implements AccountService {
     public Account save(Account account) {
         return accountRepository.save(account);
     }
+
+    @Override
+    public List<Account> saveall(List<Account> accounts) {
+        return accountRepository.saveAll(accounts);
+    }
 }

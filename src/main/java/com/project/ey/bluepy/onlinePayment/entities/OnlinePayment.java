@@ -10,7 +10,7 @@ public class OnlinePayment extends UuidIdentifiedEntity implements Serializable 
     private static final long serialVersionUID = 1L;
 
     private Long senderAccountNumber;
-    private Long ReceiverAccountNumber;
+    private Long receiverAccountNumber;
     private Float amount;
     private Date transferDate;
 
@@ -26,11 +26,11 @@ public class OnlinePayment extends UuidIdentifiedEntity implements Serializable 
     }
 
     public Long getReceiverAccountNumber() {
-        return ReceiverAccountNumber;
+        return receiverAccountNumber;
     }
 
     public void setReceiverAccountNumber(Long receiverAccountNumber) {
-        ReceiverAccountNumber = receiverAccountNumber;
+        this.receiverAccountNumber = receiverAccountNumber;
     }
 
     public Float getAmount() {

@@ -1,5 +1,6 @@
 package com.project.ey.bluepy.onlinePayment.controller;
 
+import com.project.ey.bluepy.onlinePayment.entities.Company;
 import com.project.ey.bluepy.onlinePayment.entities.User;
 import com.project.ey.bluepy.onlinePayment.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,20 @@ public class UserController {
             throw new ServerException("Error de datos");
         } else {
             return new ResponseEntity<>(userSaved, HttpStatus.CREATED);
+        }
+    }
+
+    @PostMapping(path = "userList",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<User>> saveListUser(@RequestBody List<User> users) throws ServerException {
+
+        List<User> usersSaved = userService.saveUsers(users);
+
+        if (usersSaved == null) {
+            throw new ServerException("Error de datos");
+        } else {
+            return new ResponseEntity<>(usersSaved, HttpStatus.CREATED);
         }
     }
 }

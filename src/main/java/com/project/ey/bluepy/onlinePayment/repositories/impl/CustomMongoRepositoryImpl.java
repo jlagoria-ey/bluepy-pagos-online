@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.repository.query.MongoEntityInformation;
 import org.springframework.data.mongodb.repository.support.SimpleMongoRepository;
 
+import java.util.List;
 import java.util.UUID;
 
 public class CustomMongoRepositoryImpl<T extends UuidIdentifiedEntity>
@@ -27,6 +28,11 @@ public class CustomMongoRepositoryImpl<T extends UuidIdentifiedEntity>
         return super.insert(entity);
     }
 
+    @Override
+    public <S extends T> List<S> saveAll(Iterable<S> entities){
+        entities.forEach(entity -> generateId(entity));
+        return super.insert(entities);
+    }
 
     protected <S extends T> void generateId(S entity) {
         entity.setId(UUID.randomUUID());

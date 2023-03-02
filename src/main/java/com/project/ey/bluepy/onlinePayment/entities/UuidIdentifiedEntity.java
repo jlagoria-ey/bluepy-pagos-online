@@ -14,11 +14,9 @@ public class UuidIdentifiedEntity {
 
     public void setId(UUID id) {
 
-        if (this.id != null) {
-            throw new UnsupportedOperationException("ID is already defined");
+        if (this.id == null) {
+            this.id = id;
         }
-
-        this.id = id;
     }
 
     public UUID getId() {
